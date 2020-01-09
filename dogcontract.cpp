@@ -7,12 +7,12 @@ CONTRACT dogcontract : public contract {
   public:
     using contract::contract;
     dogcontract(name receiver, name code, datastream<const char*> ds):contract(receiver, code, ds)
-    {}      
+    {}
     /*
     ** Function insert the name and age of a dog with the dog_id.
     ** Owner can not be changed in this function.
     */
-    ACTION insert(name ownder; std::string dog_name, int age){
+    ACTION insert(name owner, std::string dog_name, int age){
       //Require auth of the owner
       require_auth(owner);
       //Get the index of our table
@@ -26,7 +26,7 @@ CONTRACT dogcontract : public contract {
         row.owner = owner;
       });
     }//end ACTION insert
-    
+
       /*
       ** Function delete dog by dog_id.
       ** Owner can not be changed in this function.
@@ -89,13 +89,13 @@ CONTRACT dogcontract : public contract {
       int id; //unique ID for index
       std::string dog_name;
       int age;
-      name owner; //eos account name, owner of dogs   
-      //get primary key by ID variable 
+      name owner; //eos account name, owner of dogs
+      //get primary key by ID variable
       uint64_t primary_key() const{return id;}
       //get dogs by owner index
-      uint64_t by_owner() const{return owner.value;} 
+      uint64_t by_owner() const{return owner.value;}
     };
       //define table type index
-      typedef multi_index<"dogs"_n, dog, indexed_by<"byowner"_n, const_mem_fun<dog, uint64_t, &dog::by_owner>>> dog_index;      
-    
+      typedef multi_index<"dogs"_n, dog, indexed_by<"byowner"_n, const_mem_fun<dog, uint64_t, &dog::by_owner>>> dog_index;
+
 };
