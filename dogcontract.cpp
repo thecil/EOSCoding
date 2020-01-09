@@ -25,7 +25,7 @@ CONTRACT dogcontract : public contract {
         row.age = age;
         row.owner = owner;
       });
-      send_summary(owner, "dog inserted properly.")
+      send_summary(owner, "dog inserted properly.");
     }//end ACTION insert
 
       /*
@@ -43,7 +43,7 @@ CONTRACT dogcontract : public contract {
         auto iterator = dogs.find(dog_id);
         //Execute the erase function. Specifying the iterator,
         dogs.erase(iterator);
-        send_summary(dog.owner, "dog erased properly.")
+        send_summary(dog.owner, "dog erased properly.");
       }//end ACTION erase
 
       /*
@@ -65,7 +65,7 @@ CONTRACT dogcontract : public contract {
         row.dog_name = dog_name;
         row.age = age;
         });
-        send_summary(owner, "dog modified properly.")
+        send_summary(owner, "dog modified properly.");
       }//end ACTION modify
 
       /*
@@ -98,7 +98,7 @@ CONTRACT dogcontract : public contract {
       //get dogs by owner index
       uint64_t by_owner() const{return owner.value;}
     };
-      //inline action, notify to user if the action has been made sucessfully 
+      //inline action, notify to user if the action has been made sucessfully
       void send_summary(name user, std::string message){
         action(
           permission_level{get_self(), "active"_n}, //contract name has permission level on active
