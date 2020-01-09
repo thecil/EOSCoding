@@ -65,7 +65,7 @@ CONTRACT dogcontract : public contract {
         row.dog_name = dog_name;
         row.age = age;
         });
-        send_summary(owner, "dog modified properly.");
+        send_summary(dog.owner, "dog modified properly.");
       }//end ACTION modify
 
       /*
