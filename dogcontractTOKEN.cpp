@@ -99,13 +99,13 @@ CONTRACT dogcontract : public contract {
         auto iterator = balance.find(currency_symbol.raw());
         //reach end balance table, modify balance instead insert a new row
         if(iterator != balance.end()){
-          balance.modify(iterator, get_self(), [&](auto row){
+          balance.modify(iterator, get_self(), [&](auto &row){
             row.funds += quantity;
           });
         }
         //no deposits before, 1st deposit insert a row
         else{
-          balance.emplace(get_self(), [&](auto row){
+          balance.emplace(get_self(), [&](auto &row){
             row.funds = quantity;
           });
         }
