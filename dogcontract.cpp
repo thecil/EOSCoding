@@ -86,6 +86,14 @@ CONTRACT dogcontract : public contract {
         }
         send_summary(user, "erased all dogs");
       }//end ACTION removeall
+
+      ACTION notify(name user, std::string msg){
+        //require owner auth
+        require_auth(get_self());
+        //notify user inline action has been made
+        require_recipient(user);
+
+      }//end ACTION notify
     private:
       //table struct dog
       TABLE dog{
@@ -106,7 +114,8 @@ CONTRACT dogcontract : public contract {
           "notify"_n, //name of the action
           std::make_tuple(user, message)//actual data to send to
         ).send();
-      };
+      };//end send_summary
+
       //define table type index
       typedef multi_index<"dogs"_n, dog, indexed_by<"byowner"_n, const_mem_fun<dog, uint64_t, &dog::by_owner>>> dog_index;
 
