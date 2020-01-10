@@ -8,7 +8,7 @@ CONTRACT dogcontract : public contract {
   public:
     using contract::contract;
     dogcontract(name receiver, name code, datastream<const char*> ds):contract(receiver, code, ds)
-    currency_symbol("DOGCOIN", 0) {}
+     , currency_symbol("DOGCOIN", 0){}
     /*
     ** Function insert the name and age of a dog with the dog_id.
     ** Owner can not be changed in this function.
@@ -95,19 +95,19 @@ CONTRACT dogcontract : public contract {
         //check if currency symbol is correct
         check(quantity.symbol == currency_symbol, "Not the right coin.");
         //individual scope, get only balance by active account
-        balance_index balance(get_self(), from.value)
+        balance_index balance(get_self(), from.value);
         auto iterator = balance.find(currency_symbol.raw());
         //reach end balance table, modify balance instead insert a new row
         if(iterator != balance.end()){
           balance.modify(iterator, get_self(), [&](auto row){
             row.funds += quantity;
-          })
+          });
         }
         //no deposits before, 1st deposit insert a row
         else{
           balance.emplace(get_self(), [&](auto row){
             row.funds = quantity;
-          })
+          });
         }
       }//end void pay
 
@@ -131,7 +131,7 @@ CONTRACT dogcontract : public contract {
         asset funds; //asset is EOS type for tokens
         //primary key for table, never used but need it
         uint64_t primary_key() const{return funds.symbol.raw();}
-      }//end table balance
+      };//end table balance
 
       //define table type index
       typedef multi_index<"dogs"_n, dog, indexed_by<"byowner"_n, const_mem_fun<dog, uint64_t, &dog::by_owner>>> dog_index;
