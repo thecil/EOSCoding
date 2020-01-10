@@ -56,6 +56,12 @@ The path you copied after running "pwd" in your terminal. An example of this com
 ```
 cleos set contract dogcontract /Users/admin/Documents/eos-contracts/course-payable ./dogcontract.wasm --abi dogcontract.abi -p dogcontract@active
 ```
+  
+## Set permissions
+this is need it to be able to push actions into a contract
+```
+ cleos set account permission [account] active --add-code 
+```
 
 ## Sending Actions to Contracts
 After deployment we can execute our code by sending actions to the account where our contract is deployed. 
