@@ -83,3 +83,43 @@ An example would be:
 ```
 cleos get table bob bob dogs
 ```
+## Payable Funtions/Token Creation setup
+Clone eosio.contract rules to deploy it on an account
+
+```
+git clone https://github.com/EOSIO/eosio.contracts --branch v1.7.0 --single-branch
+```
+navigate to eosio.token folder, must compile the contract
+(-I include means for include the folder that file is located)
+
+```
+eosio-cpp -I include --abigen -o eosio.token.wasm ./src/eosio.token.cpp
+```
+Create a eosio.token account to issue the tokens
+
+```
+cleos create account eosio eosio.token [owner key] [active key]
+```
+Deploy contract to account
+
+```
+cleos set contract eosio.token ~/contracts/eosio.contracts/contracts/eosio.token ./eosio.token.wasm --abi eosio.token.abi -p eosio.token@active
+```
+
+## Token Creation
+Create token on account
+
+```
+cleos push action eosio.token create '["accountNameHere","XXXXXX NAMECOINHERE"]' -p <account>@active 
+```
+
+Issue the tokens to an account
+
+```
+cleos push action eosio.token issue '["accountNameHere","XXXXXX NAMECOINHERE","WriteAMemoHere"]' -p <account>@active 
+```
+
+Check account balance
+```
+cleos get table eosio.token <accountNameHere> accounts
+```
