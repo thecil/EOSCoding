@@ -123,3 +123,10 @@ Check account balance
 ```
 cleos get table eosio.token <accountNameHere> accounts
 ```
+
+Send token from issuer to others
+```
+cleos transfer [OPTIONS] sender recipient amount [memo] -p <account>@active
+
+Ex: cleos transfer bob inline "20 DOGCOIN" "get some coins!!" -p bob@active
+```
