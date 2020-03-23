@@ -12,14 +12,13 @@ sudo apt install ~/eosio_2.0.4-1-ubuntu-18.04_amd64.deb
 ```
 * [CDT](https://github.com/EOSIO/eosio.cdt/releases/). -EOSIO cdt client
 
-Step 2: Setup Directory
-```
-mkdir contracts
-cd contracts
-```
-
-Step 4: Install CDT
+Step 2: Install CDT
 ```
 wget https://github.com/EOSIO/eosio.cdt/releases/download/v1.7.0-rc1/eosio.cdt_1.7.0-rc1-ubuntu-18.04_amd64.deb
 sudo apt install ~/eosio.cdt_1.7.0-rc1-ubuntu-18.04_amd64.deb
+```
+
+Step 3: Setup Directory
+```
+mkdir contracts
 ```
