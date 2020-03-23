@@ -7,8 +7,8 @@ This file intend to describe the process i follow in order to setup/install a no
 Step 1: Install binaries
 * [EOSIO](https://github.com/EOSIO/eos/releases/). -EOSIO client
 ```
-wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
-sudo apt install ~/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+wget https://github.com/EOSIO/eos/releases/download/v2.0.4/eosio_2.0.4-1-ubuntu-18.04_amd64.deb
+sudo apt install ~/eosio_2.0.4-1-ubuntu-18.04_amd64.deb
 ```
 * [CDT](https://github.com/EOSIO/eosio.cdt/releases/). -EOSIO cdt client
 
