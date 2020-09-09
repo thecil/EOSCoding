@@ -1,6 +1,6 @@
 # EOSIO Dapp WebServer Setup
 
-Some stuffs to copy/paste in future for deployment of the webserver for dapps.
+Snippets to copy/paste in future for deployment of the webserver for dapps.
 
 ## Get Scatter
 for linux is an .appImage
