@@ -1,6 +1,6 @@
 # EOSIO CLI commands
 
-Some stuffs to copy/paste in future for CLEOS node on LINUX.
+Snippets to copy/paste in future for CLEOS node on LINUX.
 
 ## Creating wallet
 
